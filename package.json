@@ -1,0 +1,68 @@
+{
+  "name": "@alt/connect-to-stores",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/connectToStores",
+  "dependencies": {},
+  "devDependencies": {
+    "alt": "0.17.1",
+    "babel": "5.6.14",
+    "babel-core": "5.6.15",
+    "babel-eslint": "3.1.18",
+    "babel-loader": "^5.1.4",
+    "babelify": "6.1.2",
+    "browserify": "^10.2.6",
+    "chai": "^2.3.0",
+    "coveralls": "^2.11.2",
+    "envify": "^3.4.0",
+    "es6-promise": "^2.1.1",
+    "eslint": "^0.24.0",
+    "eslint-plugin-react": "2.5.2",
+    "istanbul": "^0.3.14",
+    "jsdom": "^3.1.2",
+    "lunr": "^0.5.9",
+    "mocha": "^2.2.4",
+    "object-assign": "^2.0.0",
+    "react": "^0.13.3",
+    "rimraf": "^2.3.2",
+    "sinon": "^1.14.0",
+    "webpack": "^1.9.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/altjs/connect-to-stores.git"
+  },
+  "authors": [
+    "Josh Perez <josh@goatslacker.com>",
+    "Jonathan Lehman <jonathan.lehman91@gmail.com>",
+    "Brian Link <cpsubrian@gmail.com>"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "npm run clean && npm run transpile && npm run build-browser",
+    "build-browser": "./node_modules/.bin/webpack --config dist.config.js && ./node_modules/.bin/webpack -p --config dist.min.config.js",
+    "coverage": "npm run transpile-cover && ./node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha -- -u exports -R tap --require ./test/babel test",
+    "clean": "./node_modules/.bin/rimraf lib",
+    "lint": "./node_modules/.bin/eslint src",
+    "prepublish": "npm run lint && npm run build",
+    "pretest": "npm run clean && npm run transpile",
+    "test": "npm run test-node",
+    "test-browser": "./node_modules/.bin/browserify test/browser/index.js -t babelify --outfile test/browser/tests.js",
+    "test-node": "./node_modules/.bin/mocha -u exports -R nyan --require ./test/babel test",
+    "transpile": "./node_modules/.bin/babel src --out-dir lib",
+    "transpile-cover": "./node_modules/.bin/babel src --out-dir lib -r"
+  },
+  "keywords": [
+    "alt",
+    "es6",
+    "flow",
+    "flux",
+    "react",
+    "unidirectional"
+  ],
+  "config": {
+    "ghooks": {
+      "pre-push": "npm run lint"
+    }
+  }
+}
