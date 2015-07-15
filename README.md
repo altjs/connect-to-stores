@@ -9,12 +9,17 @@ Check out the [API Reference](http://alt.js.org/docs/) for full in-depth alt doc
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/goatslacker/alt?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+```
+// @todo Use real badges for this package.
+/*
 [![NPM version](https://badge.fury.io/js/alt.svg)](http://badge.fury.io/js/alt)
 [![Build Status](https://secure.travis-ci.org/goatslacker/alt.svg?branch=master)](http://travis-ci.org/goatslacker/alt)
 [![Coverage Status](https://img.shields.io/coveralls/goatslacker/alt.svg?style=flat)](https://coveralls.io/r/goatslacker/alt)
 [![Dependency Status](https://david-dm.org/goatslacker/alt.svg)](https://david-dm.org/goatslacker/alt)
 [![Download Count](https://img.shields.io/npm/dm/alt.svg?style=flat)](https://www.npmjs.com/package/alt)
 [![JS.ORG](https://img.shields.io/badge/js.org-alt-ffb400.svg?style=flat-square)](http://js.org)
+*/
+```
 
 ## How to use
 
