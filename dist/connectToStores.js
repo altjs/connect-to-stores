@@ -73,16 +73,36 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _functions = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./functions\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	// @todo Where to get these from?
+	var isFunction = function isFunction(x) {
+	  return typeof x === 'function';
+	};
+	var eachObject = function eachObject(f, o) {
+	  o.forEach(function (from) {
+	    Object.keys(Object(from)).forEach(function (key) {
+	      f(key, from[key]);
+	    });
+	  });
+	};
+	var assign = function assign(target) {
+	  for (var _len = arguments.length, source = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	    source[_key - 1] = arguments[_key];
+	  }
+
+	  eachObject(function (key, value) {
+	    return target[key] = value;
+	  }, source);
+	  return target;
+	};
 
 	function connectToStores(Spec) {
 	  var Component = arguments[1] === undefined ? Spec : arguments[1];
 	  return (function () {
 	    // Check for required static methods.
-	    if (!(0, _functions.isFunction)(Spec.getStores)) {
+	    if (!isFunction(Spec.getStores)) {
 	      throw new Error('connectToStores() expects the wrapped component to have a static getStores() method');
 	    }
-	    if (!(0, _functions.isFunction)(Spec.getPropsFromStores)) {
+	    if (!isFunction(Spec.getPropsFromStores)) {
 	      throw new Error('connectToStores() expects the wrapped component to have a static getPropsFromStores() method');
 	    }
 
@@ -120,7 +140,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      },
 
 	      render: function render() {
-	        return _react2['default'].createElement(Component, (0, _functions.assign)({}, this.props, this.state));
+	        return _react2['default'].createElement(Component, assign({}, this.props, this.state));
 	      }
 	    });
 
