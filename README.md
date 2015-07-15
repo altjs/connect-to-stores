@@ -83,9 +83,6 @@ class MyComponent extends React.Component {
 A great explanation of the merits of higher order components can be found at
 http://bit.ly/1abPkrP
 
-## Use as a component wrapper
-
-[Hot-to here]
 
 ## License
 
