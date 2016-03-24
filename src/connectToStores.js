@@ -10,7 +10,9 @@ const eachObject = (f, o) => {
   })
 }
 const assign = (target, ...source) => {
-  eachObject((key, value) => target[key] = value, source)
+  eachObject((key, value) => {
+    target[key] = value
+  }, source)
   return target
 }
 
@@ -24,6 +26,7 @@ function connectToStores(Spec, Component = Spec) {
   }
 
   const StoreConnection = React.createClass({
+
     getInitialState() {
       return Spec.getPropsFromStores(this.props, this.context)
     },
@@ -55,6 +58,14 @@ function connectToStores(Spec, Component = Spec) {
         Component,
         assign({}, this.props, this.state)
       )
+    }
+  })
+
+  // copy static methods of component
+  Object.getOwnPropertyNames(Spec).forEach(function (prop) {
+    if (prop === 'getPropsFromStores' || prop === 'getStores') return
+    if (typeof Spec[prop] === 'function' && !StoreConnection[prop]) {
+      StoreConnection[prop] = Spec[prop]
     }
   })
 
