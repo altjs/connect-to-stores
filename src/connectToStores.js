@@ -24,8 +24,10 @@ function connectToStores(Spec, Component = Spec) {
   }
 
   const StoreConnection = class StoreConnection extends React.Component {
-    getInitialState() {
-      return Spec.getPropsFromStores(this.props, this.context)
+    constructor(props, context) {
+      super(props);
+      this.state = Spec.getPropsFromStores(props, context);
+      this.onChange = this.onChange.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
