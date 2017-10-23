@@ -1,5 +1,5 @@
 {
-  "name": "@alt/connect-to-stores",
+  "name": "connect-to-stores",
   "version": "0.0.1",
   "description": "",
   "main": "lib/connectToStores",
