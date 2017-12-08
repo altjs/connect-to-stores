@@ -1,4 +1,5 @@
 import React from 'react'
+import createReactClass from 'create-react-class'
 
 // @todo Where to get these from?
 const isFunction = x => typeof x === 'function'
@@ -23,7 +24,7 @@ function connectToStores(Spec, Component = Spec) {
     throw new Error('connectToStores() expects the wrapped component to have a static getPropsFromStores() method')
   }
 
-  const StoreConnection = React.createClass({
+  const StoreConnection = createReactClass({
     getInitialState() {
       return Spec.getPropsFromStores(this.props, this.context)
     },
