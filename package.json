@@ -21,7 +21,6 @@
     "coverage": "npm run transpile-cover && ./node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha -- -u exports -R tap --require ./test/babel test",
     "clean": "./node_modules/.bin/rimraf lib",
     "lint": "./node_modules/.bin/eslint src",
-    "prepublish": "npm run lint && npm run build",
     "pretest": "npm run clean && npm run transpile",
     "test": "npm run test-node",
     "test-browser": "./node_modules/.bin/browserify test/browser/index.js -t babelify --outfile test/browser/tests.js",
