@@ -98,7 +98,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 
 	  eachObject(function (key, value) {
-	    return target[key] = value;
+	    target[key] = value;
 	  }, source);
 	  return target;
 	};

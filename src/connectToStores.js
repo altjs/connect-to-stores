@@ -10,7 +10,7 @@ const eachObject = (f, o) => {
   })
 }
 const assign = (target, ...source) => {
-  eachObject((key, value) => target[key] = value, source)
+  eachObject((key, value) => {target[key] = value}, source)
   return target
 }
 
@@ -25,9 +25,9 @@ function connectToStores(Spec, Component = Spec) {
 
   const StoreConnection = class StoreConnection extends React.Component {
     constructor(props, context) {
-      super(props);
-      this.state = Spec.getPropsFromStores(props, context);
-      this.onChange = this.onChange.bind(this);
+      super(props)
+      this.state = Spec.getPropsFromStores(props, context)
+      this.onChange = this.onChange.bind(this)
     }
 
     componentWillReceiveProps(nextProps) {
@@ -60,7 +60,7 @@ function connectToStores(Spec, Component = Spec) {
     }
   }
 
-  return StoreConnection;
+  return StoreConnection
 }
 
 export default connectToStores

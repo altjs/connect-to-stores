@@ -5,6 +5,7 @@ import connectToStores from '../'
 import { assert } from 'chai'
 import sinon from 'sinon'
 
+const { JSDOM } = jsdom;
 const { TestUtils } = React.addons
 
 const alt = new Alt()
@@ -26,7 +27,7 @@ const testStore = alt.createStore(
 export default {
   'connectToStores wrapper': {
     beforeEach() {
-      global.document = jsdom('<!doctype html><html><body></body></html>')
+      global.document = new JSDOM('<!doctype html><html><body></body></html>')
       global.window = global.document.parentWindow
       global.navigator = global.window.navigator
       require('react/lib/ExecutionEnvironment').canUseDOM = true
